@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Hello Rahul</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+	<div class="container">
+		<div class="row">
+			<div class ="col-nm-3 target"></div>
+		</div>
+	</div>
+<body>	
+</body>
+<script type="text/jsx">
+	//Define a class 
+	var Badge = React.createClass({
+		render : function(){
+			 return <button className="btn btn-primary" type="button">{this.props.title}<span className="badge">{this.props.number}</span>
+			 </button>
+		}
+	});
+	var options = {
+		title : 'Inbox',
+		number : 32,
+		header : 'Learn React',
+		description : 'React is a fantastic library to make we application.React is a fantastic library to make we application.',
+		imageUrl : 'http://formatjs.io/img/react.svg'
+	};
+
+	var Thumbnail = React.createClass({
+		render : function(){
+			return <div className="thumbnail">
+				<img src={this.props.imageUrl}/>
+      			<div className="caption">
+        		<h3>{this.props.Header}</h3>
+        		<p>{this.props.description}</p>
+        		<p>
+        			<Badge title={this.props.title} number={this.props.number}/>
+        		</p>
+      			</div>
+    		</div>
+		}
+	});
+	// React, please render this class
+	var element = React.createElement(Thumbnail,options);
+	//React after you render this class , please place it in my body
+	React.render(element , document.querySelector('.target'));
+
+</script>
+</html>
